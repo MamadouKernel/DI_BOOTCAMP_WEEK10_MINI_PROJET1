@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.header{
+    background-color: indigo;
+    height: 80px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.counter-panel{
+    height: 100%;
+    width: 80%;
+    background-color: #B7E764;
+}
+
+.btn-show-user, .btn-show-user:hover{
+    border: none;
+    background-color: #FEB705;
+}
+
+.counter-user{
+    font-size: 3em;
+    color: red;
+}
+

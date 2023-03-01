@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <app-header></app-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <app-form (userAddedEvent)="getUserCountFromFormComponent($event)"></app-form>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <app-panel-counter [userCreated]="userCreated"
+                           (userListOutput)="getUserUserListFromPanelCounterComponent($event)"></app-panel-counter>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-12">
+        <app-user-list [userList]="userList"></app-user-list>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

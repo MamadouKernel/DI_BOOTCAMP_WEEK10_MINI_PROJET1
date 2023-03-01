@@ -1,0 +1,39 @@
+<h3>Create User</h3>
+<form class="row g-3" #userForm="ngForm" (ngSubmit)="userForm.valid && saveUser(userForm)">
+  <div class="col-md-6">
+    <label forname="firstname">First Name</label>
+    <input type="text" class="form-control" name="firstname" id="firstname" required [(ngModel)]="user.firstName"
+           #firstname="ngModel" placeholder="First Name"/>
+    <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">
+      Ce champ est obligatoire
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label forname="lastname">Last Name</label>
+    <input type="text" class="form-control" name="lastname" id="lastname" required [(ngModel)]="user.lastName"
+           #lastname="ngModel" placeholder="Last Name"/>
+    <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">
+      Ce champ est obligatoire
+    </div>
+  </div>
+  <div class="col-12">
+    <label forname="email" text="Email">Email</label>
+    <input type="email" class="form-control" name="email" id="email" required placeholder="example@example.com"
+           [(ngModel)]="user.email" #email="ngModel"/>
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Ce champ est obligatoire
+    </div>
+  </div>
+  <div class="col-12" [hidden]="!apiErrorThrown">
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      {{errorResponseServer != undefined && errorResponseServer.error.firstName != undefined ? "- " + errorResponseServer.error.firstName : ''}}
+      {{errorResponseServer != undefined && errorResponseServer.error.lastName != undefined ? "- " + errorResponseServer.error.lastName : ''}}
+      {{errorResponseServer != undefined && errorResponseServer.error.email != undefined ? "- " + errorResponseServer.error.email : ''}}
+    </div>
+  </div>
+  <div class="col-12">
+    <!--    <button type="button" class="btn btn-danger" (click)="saveUser(); userForm.reset()">Create</button>-->
+    <button type="submit" class="btn btn-danger" [disabled]="!userForm.form.valid">Create</button>
+  </div>
+</form>
+
